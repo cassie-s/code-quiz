@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="styleshee" href="assets/css/game.css">
+    <script src="./assets/js/script.js"></script>
 </head>
 <body>
-    <button>Start</button>
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1>Coding Quiz Challenge</h1>
+            <p class="description">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <a class="btn" href="game.html">Start</a>
+            <a class="btn" href="/highscores.html">High Scores</a>
+        </div>
+    </div>
+    <!-- Start Quiz -->
+    <div class="start">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+        <button class="btn" id="start-btn">Start Quiz</button>
+    </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer">
+            <div class="time-left-text">Time:</div>
+            <div class="timer-sec">75</div>
+        </div>
+
+    <!-- quiz begins -->
+        <div class="que-text">
+            <!-- insert questions from javascript -->
+        </div>
+        <div class="option-list">
+            <!-- insert options from javascript -->
+        </div>
+
+    <!-- quiz ends, enter high score -->
+        <div class="enter-high-score">
+            <div class="complete-text">All done!</div>
+            <div class="score-text">
+    <!-- Insert score result from Javascript -->
+            </div>
+            <p>Enter initials</p>
+            <form></form>
+            <button class="submit">Submit</button>
+        </div>
+
+    <!-- see high scores -->
+        <div class="high-score">
+            <h1>High scores</h1>
+            <form></form>
+            <button class="go-back">Go Back</button>
+            <button class="clear-high-scores">Clear high scores</button>
+        </div>
 </body>
 </html>
