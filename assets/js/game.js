@@ -25,7 +25,7 @@ let questions = [
       choice2: "curly brackets",
       choice3: "parenthesis",
       choice4: "square brackets",
-      answer: 2,
+      answer: 3,
   },
     {
     question: "Arrays in Javascript can be used to store _______.",
@@ -64,8 +64,9 @@ var elem = document.getElementById('timer-sec');
 var timerId = setInterval(countdown, 1000);
 
 function countdown() {
-  if (timeLeft == 0) {
+  if (timeLeft <= 0) {
     clearTimeout(timerId);
+    localStorage.setItem('mostRecentScore', score);
     window.location.assign('end.html');
   } else {
     elem.innerHTML = timeLeft;

@@ -1,11 +1,11 @@
 :root {
-    background-color: #ecf5ff;
+    background-color: #f5f5f5;
     font-size: 62.5%;
   }
   
   * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -54,8 +54,6 @@
     padding: 2rem;
   }
 
-  
-  
   .container > * {
     width: 100%;
   }
@@ -93,6 +91,14 @@
     text-decoration: none;
     color: #56a5eb;
     background-color: white;
+  }
+
+  .highscore {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 2rem;
+    margin-top: 2rem;
   }
 
   .description {
@@ -139,15 +145,17 @@
       color: #aaa;
   }
 
-    .timer {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: right;
-      font-size: 2rem;
-      padding: 2rem;
-
+  .game-flex {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
+
+  .timer {
+    display:flex;
+    font-size: 2rem;
+    padding: 2rem;  
+  }  
 
   /* HUD */
 
