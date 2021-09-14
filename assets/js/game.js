@@ -1,5 +1,8 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const questionCounterText = document.getElementById('questionCounter');
+const scoreText = document.getElementById('score');
+ 
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -14,7 +17,7 @@ let questions = [
       choice2: "booleans",
       choice3: "alerts",
       choice4: "numbers",
-      answer: 1,
+      answer: 3,
   },
     {
     question: "The condition in an if / else statement is enclosed with ______.",
@@ -22,7 +25,7 @@ let questions = [
       choice2: "curly brackets",
       choice3: "parenthesis",
       choice4: "square brackets",
-      answer: 3,
+      answer: 2,
   },
     {
     question: "Arrays in Javascript can be used to store _______.",
@@ -33,7 +36,7 @@ let questions = [
       answer: 4,
   },
     {
-    question: "String values must be enclosed within _______ hwne being assigned to variables.",
+    question: "String values must be enclosed within _______ when being assigned to variables.",
       choice1: "commas",
       choice2: "curly brackets",
       choice3: "quotes",
@@ -55,6 +58,22 @@ let questions = [
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5;
 
+//TIMER
+var timeLeft = 30;
+var elem = document.getElementById('timer-sec');
+var timerId = setInterval(countdown, 1000);
+
+function countdown() {
+  if (timeLeft == 0) {
+    clearTimeout(timerId);
+    window.location.assign('end.html');
+  } else {
+    elem.innerHTML = timeLeft;
+    timeLeft--;
+  }
+}
+
+
 startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -64,10 +83,13 @@ startGame = () => {
 
 getNewQuestion = () => {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score);
         //go to the end page
-        return window.location.assign('/end.html');
+        return window.location.assign('end.html');
     }
     questionCounter++;
+    questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
+
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -92,12 +114,20 @@ choices.forEach((choice) => {
         var resultBox = document.getElementById("correct-text");
         if (selectedAnswer == currentQuestion.answer) {
             resultBox.innerHTML="Correct!",document.getElementById('correct-text').style.fontSize = "xx-large";
+            incrementScore(CORRECT_BONUS);
         } else {
             resultBox.innerHTML="Wrong!",document.getElementById('correct-text').style.fontSize = "xx-large";
+            elem.innerHTML = timeLeft;
+            timeLeft -= 10;
         }
 
         getNewQuestion();
     });
 });
+
+incrementScore = num => {
+    score +=num;
+    scoreText.innerText = score;
+}
 
 startGame();
