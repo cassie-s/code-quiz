@@ -10,4 +10,4 @@ Languages used
 * CSS
 * Javascript
 
-Deployed url: cassie-s.github.io/code-quiz
+[Coding Quiz!](cassie-s.github.io/code-quiz)
