@@ -10,4 +10,4 @@ Languages used
 * CSS
 * Javascript
 
-[Coding Quiz!](cassie-s.github.io/code-quiz)
+[Coding Quiz!](https://cassie-s.github.io/code-quiz/index.html)
